@@ -128,7 +128,7 @@ const Page: NextPage<Props> = ({ userAgent }) => (
     <Navbar />
     <Wrapper>
       <Card>
-        <Table columns={COLUMNS} dataSource={ROWS} />
+        <Table columns={COLUMNS} dataSource={ROWS} bordered={true} />
       </Card>
     </Wrapper>
   </div>
