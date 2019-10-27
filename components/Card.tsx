@@ -1,7 +1,15 @@
 import styled from "@emotion/styled";
 
-export const Card = styled.div`
+export const CardNoPadding = styled.div`
   background-color: #fff;
-  padding: 23px;
   border-radius: 7px;
+`;
+
+export const CardInner = styled.div`
+  padding: 30px;
+  border-bottom: 1px solid #f0f2f4;
+`;
+
+export const Card = styled(CardNoPadding)`
+  padding: 23px;
 `;
