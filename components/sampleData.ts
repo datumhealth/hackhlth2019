@@ -37,6 +37,7 @@ const genRow = () => ({
 export const ROWS = Array(10)
   .fill(null)
   .map(_ => genRow());
+ROWS[0].name = "Mark Williams";
 
 export const COLUMNS = config["Patient Dashboard - Details"]
   .filter(row => row["Summary?"] === "TRUE")
