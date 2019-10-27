@@ -66,3 +66,10 @@ export const COLUMNS = config["Patient Dashboard - Details"]
       return "";
     }
   }));
+
+export const DASHBOARD_DATA = config["Patient Dashboard - Details"]
+  .filter(row => row["Dashboard?"] !== "FALSE")
+  .map(row => ({
+    label: row.label,
+    value: row.Sample
+  }));

@@ -1,15 +1,24 @@
 import styled from "@emotion/styled";
-import { Button, Table } from "antd";
+import { Collapse, Tabs } from "antd";
 import { NextPage } from "next";
-import { Card, CardNoPadding, CardInner } from "../components/Card";
+import { CardInner, CardNoPadding } from "../components/Card";
 import { Navbar } from "../components/Navbar";
-import { COLUMNS, ROWS } from "../components/sampleData";
+import { DASHBOARD_DATA } from "../components/sampleData";
+const { TabPane } = Tabs;
+const { Panel } = Collapse;
+
+const TabPaneWhite = styled(TabPane)`
+  background-color: #fff;
+`;
 
 const Wrapper = styled.div`
   padding: 33px 23px;
   display: grid;
   grid-template-columns: 334px 1fr;
   grid-column-gap: 23px;
+  .ant-tabs-bar {
+    margin: 0;
+  }
 `;
 
 const InfoHeader = () => (
@@ -175,6 +184,17 @@ const CriteriaNotMet = () => (
   </svg>
 );
 
+const DataGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 15px;
+`;
+
+const ElementGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+`;
+
 const Page: NextPage<{}> = () => (
   <div>
     <Navbar />
@@ -190,7 +210,103 @@ const Page: NextPage<{}> = () => (
           <CriteriaNotMet />
         </CardInner>
       </CardNoPadding>
-      <Card>I am a patient</Card>
+      <Tabs type="card">
+        <TabPaneWhite tab="Patient Information" key="1">
+          <CardInner>
+            <DataGrid>
+              {DASHBOARD_DATA.map(({ label, value }) => (
+                <ElementGrid>
+                  <span>
+                    <strong>{label}:</strong>
+                  </span>
+                  <span>{value}</span>
+                </ElementGrid>
+              ))}
+            </DataGrid>
+          </CardInner>
+          <CardInner>
+            <span>Day-to-Day Summaries:</span>
+            <Collapse defaultActiveKey={["1"]}>
+              <Panel header="10/21/2019" key="1">
+                <ul>
+                  <li>transferred to internal medicine floor</li>
+                  <li>
+                    continued diffused abdominal pain associated with nausea and
+                    vomiting
+                  </li>
+                  <li>CBC - white count 10.5 K/uL, hgb 9.6, hct 27.9</li>
+                  <li>
+                    IVF ,regular insulin, mupirocin, heparin sc, detemir sc,
+                    insulin aspart sc
+                  </li>
+                  <li>
+                    Blood sugar controlled on sliding scale insulin with Levemir
+                    20 units every night.
+                  </li>
+                </ul>
+              </Panel>
+            </Collapse>
+          </CardInner>
+        </TabPaneWhite>
+        <TabPaneWhite tab="InterQual Criteria" key="2">
+          <CardInner>
+            <Collapse defaultActiveKey={["1"]}>
+              <Panel header="DRG: 639" key="1">
+                <pre>
+                  {`
+●Diabetes type 1, new onset and, All:
+      ▶Blood sugar monitoring at least 4x/24h
+      ▶Diabetes education
+      ▶Hypoglycemic medication initiation or adjustment (includes PO)
+●Fasting blood sugar > 180 mg/dL(10.0 mmol/L) ≥ 2 readings and inability to tolerate or adhere to prescribed regimen (including diet) and, All:
+      ▶Blood sugar monitoring at least 4x/24h
+      ▶Diabetes education
+      ▶Hypoglycemic medication initiation or adjustment (includes PO)
+●Hyperglycemia and, Both:
+▶Finding, ≥ One:
+♦Intractable nausea and vomiting
+♦Orthostatic hypotension, Both:
+▶Sustained drop in blood pressure within 3 min of sitting or standing
+▶Blood pressure, ≥ One:
+♦Systolic drop ≥ 20 mmHg
+♦Diastolic drop ≥ 10 mmHg
+▶Intervention, All:
+♦Blood sugar monitoring at least 4x/24h
+♦Insulin adjustment or pump regulation ≥ 3x/24h
+♦IV fluid, One:
+▶≥ 50 mL/kg/24h (≤ 10 kg)
+▶≥ 40 mL/kg/24h (> 10−25 kg)
+▶≥ 30 mL/kg/24h (> 25−60 kg)
+▶≥ 75 mL/h (> 60 kg)
+●Pregnancy and non−gestational diabetes mellitus and, Both:
+▶Finding, Both:
+♦Blood sugar, ≥ One:
+▶Fasting > 100 mg/dL(5.6 mmol/L)
+▶2h postprandial ≥ 120 mg/dL(6.7 mmol/L)
+♦Failed outpatient insulin management ≥ 5d
+▶Intervention, All:
+♦Blood sugar monitoring at least 4x/24h
+♦Insulin, ≥ One:
+▶Continuous
+▶IV ≥ 2x/24h
+▶SC or IM ≥ 4x/24h
+♦Diabetes education
+            `}
+                </pre>
+              </Panel>
+            </Collapse>
+          </CardInner>
+        </TabPaneWhite>
+        <TabPaneWhite tab="Care Team" key="3">
+          Content of Tab Pane 3
+        </TabPaneWhite>
+        <TabPaneWhite tab="Discharge Plan" key="4">
+          Content of Tab Pane 3
+        </TabPaneWhite>
+        <TabPaneWhite tab="Insurance Coverage" key="5">
+          Content of Tab Pane 3
+        </TabPaneWhite>
+      </Tabs>
     </Wrapper>
   </div>
 );
