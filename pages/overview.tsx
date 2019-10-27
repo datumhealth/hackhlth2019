@@ -42,6 +42,7 @@ const Page: NextPage<{}> = () => (
           <Button icon="area-chart" size="large"></Button>
         </TableHeader>
         <Table
+          size="small"
           onRowClick={() => Router.push("/patient")}
           columns={COLUMNS}
           dataSource={ROWS}

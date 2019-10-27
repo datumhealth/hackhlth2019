@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Card } from "antd";
 import dynamic from "next/dynamic";
 import { CRITERIA } from "./sampleData";
+import { motion } from "framer-motion";
 
 const RiskDial = dynamic(import("./RiskDial").then(x => x.RiskDial), {
   ssr: false
@@ -96,15 +97,17 @@ export const DenialRisk = () => (
     <h1>Denial Risk</h1>
     <div>
       <Main>
-        <RiskDial />
-        <div>
+        <motion.div>
+          <RiskDial />
+        </motion.div>
+        <motion.div>
           <h2>This patient has a 87% risk of denial.</h2>
           <p>
             InterQual criteria is only partially met. To decrease the likelihood
             of the patient being denied, ensure that the unmet criteria are
             resolved.
           </p>
-        </div>
+        </motion.div>
       </Main>
       <Criteria>
         {CRITERIA.map((p: CriterionProps) => (

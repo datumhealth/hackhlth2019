@@ -155,17 +155,23 @@ COLUMNS.push({
 
 COLUMNS.find(c => c.key === "glos").title = (
   <>
-    GL
+    G
     <br />
-    OS
+    L
+    <br />
+    O
+    <br />S
   </>
 );
 
 COLUMNS.find(c => c.key === "alos").title = (
   <>
-    AL
+    A
     <br />
-    OS
+    L
+    <br />
+    O
+    <br />S
   </>
 );
 
