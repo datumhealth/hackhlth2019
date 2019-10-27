@@ -34,7 +34,7 @@
       "label": "Pt. Name",
       "description": "Name of the patient",
       "key": "name",
-      "Sample": "Hannah Montana",
+      "Sample": "Mark Williams",
       "Options": "n/a",
       "FHIR": "Encounter.subject / Patient.name.text",
       "Summary?": "TRUE",
@@ -60,13 +60,17 @@
     {
       "label": "Primary Insurance Coverage",
       "description": "Patient's insurance Coverage",
-      "key": "insurance",
-      "Sample": "Anthem BCBS",
+      "key": "insurance ",
+      "Sample": "Anthem BCBS \nFax #: 919-888-0404\nutilizationmgmt@anthemBCBS.com\ncasemanagement@anthemBCBS.com",
       "Options": "Medicare\nUnited Health Care\nAetna\nCommunity Care Plan (MDCD)",
       "FHIR": "Coverage",
       "FHIR JS": "encounter.patient.coverages.filter(c => c.status === 'active').map(c => c.payor.name)",
       "Summary?": "TRUE",
       "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Secondary Insurance Coverage",
+      "description": "Secondary Insurance Coverage"
     },
     {
       "label": "PCP",
@@ -104,7 +108,7 @@
       "description": "The DRG the patient has been assigned to based on the review of the clinical data in the medical record.  The DRGs are a patient classification\nscheme which provides a means of relating the type of patients a hospital treats (i.e., its case mix)\nto the costs incurred by the hospital.  This is the form of reimbursement that the CMS uses to pay hospitals for Medicare and Medicaid recipients. ",
       "key": "drg",
       "Sample": "639-DIABETES W/O CC/MCC\n",
-      "Options": "only 1 DRG is assigned at a time. it woud be the one that would give the hospital the most reimbursement",
+      "Options": "689-KIDNEY & URINARY TRACT INFECTIONS W MCC\n820-LYMPHOMA & LEUKEMIA W MAJOR O.R. PROCEDURE W MCC\n177-RESPIRATORY INFECTIONS & INFLAMMATIONS W MCC\n433-CIRRHOSIS & ALCOHOLIC HEPATITIS W CC\n467-REVISION OF HIP OR KNEE REPLACEMENT W CC\n540-OSTEOMYELITIS W CC\n652-KIDNEY TRANSPLANT\r\n872-SEPTICEMIA OR SEVERE SEPSIS W/O MV >96 HOURS W/O MCC\r\n312-SYNCOPE & COLLAPSE\r\n",
       "FHIR": "ExplanationOfBenefit.diagnosis.packageCode",
       "Summary?": "TRUE"
     },
@@ -112,7 +116,6 @@
       "label": "Final DRG",
       "description": "The final DRG when patient gets discharged",
       "Sample": "639-DIABETES W/O CC/MCC\r\n",
-      "Options": "only 1 DRG is assigned at a time. it woud be the one that would give the hospital the most reimbursement",
       "Dashboard?": "TRUE"
     },
     {
@@ -126,22 +129,22 @@
       "Dashboard?": "TRUE"
     },
     {
-      "label": "ALOS",
-      "description": "The actual length of stay based on DRG",
-      "key": "alos",
-      "Sample": "2",
-      "Options": "Current Date minus Date of admission ",
-      "FHIR": "Encounter.length",
-      "Summary?": "TRUE",
-      "Dashboard?": "TRUE"
-    },
-    {
       "label": "IQ Criteria \n Status",
       "description": "The status of the criteria for the stay of the patient using Interqual guidelines. InterQual® An evidence-based clinical decision support solution to help payers, providers, and government agencies make clinically appropriate medical utilization decisions.",
       "key": "iq",
       "Sample": "Partially Met",
       "Options": "Met\nNot Met\nPartially Met",
       "FHIR": "??",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "ALOS",
+      "description": "The actual length of stay based on DRG",
+      "key": "alos",
+      "Sample": "2",
+      "Options": "Current Date minus Date of admission ",
+      "FHIR": "Encounter.length",
       "Summary?": "TRUE",
       "Dashboard?": "TRUE"
     },
@@ -183,7 +186,7 @@
     },
     {
       "label": "Barriers to Care- SDoH- Social Determinants of Health",
-      "Sample": "Transportation",
+      "Sample": "Literacy",
       "Options": "Food \nTransportation \nHousing \nLiteracy \nEducation",
       "Dashboard?": "TRUE"
     },
@@ -194,8 +197,13 @@
     },
     {
       "label": "Medications"
+    },
+    {
+      "label": "Care Team",
+      "key": "Dietician\nEndocrinologist\nAttending MD\nSocial Worker\nCase Manager\nPharmacist\nPodiatrists\r\nOptometrists\nCertified diabetes educators"
     }
   ],
+  "Pitch Deck": [],
   "IQ and sample summary": [],
   "User Stories": [
     {
