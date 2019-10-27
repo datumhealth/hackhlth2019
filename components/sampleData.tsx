@@ -3,7 +3,14 @@ import config from "./config.json";
 import idx from "idx";
 import { ColumnProps } from "antd/lib/table";
 import styled from "@emotion/styled";
-import { Tag } from "antd";
+import { Tag, Badge } from "antd";
+
+const INSURANCE_COLORS: { [key: string]: string } = {
+  Medicare: "green",
+  "United Health Care": "blue",
+  Aetna: "red",
+  "Community Care Plan (MDCD)": "yellow"
+};
 
 const DRGS = (
   idx(
@@ -89,6 +96,15 @@ export const COLUMNS: ColumnProps<any>[] = config["Patient Dashboard - Details"]
       }
       if (row.key === "iq") {
         return <Iq iq={v} />;
+      }
+      if (row.key === "insurance") {
+        return (
+          <Badge
+            key={Math.random().toString()}
+            color={INSURANCE_COLORS[v] || "pink"}
+            text={v}
+          />
+        );
       }
       if (typeof v !== "object") {
         return v.toString();
