@@ -38,7 +38,6 @@ const genRow = () => ({
 export const ROWS = Array(10)
   .fill(null)
   .map(_ => genRow());
-ROWS[0].name = "Mark Williams";
 
 export const COLUMNS = config["Patient Dashboard - Details"]
   .filter(row => row["Summary?"] === "TRUE")
@@ -86,3 +85,5 @@ export const fetchProperty = (label: string) =>
   idx(DASHBOARD_DATA.find(row => row.label === label), _ => _.value) || "--";
 
 export const DENIAL_RISK = "87%";
+
+ROWS[0].name = fetchProperty("Pt. Name");
