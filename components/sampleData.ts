@@ -71,5 +71,6 @@ export const DASHBOARD_DATA = config["Patient Dashboard - Details"]
   .filter(row => row["Dashboard?"] !== "FALSE")
   .map(row => ({
     label: row.label,
-    value: row.Sample
+    value: row.Sample,
+    help: row.description
   }));

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Collapse, Tabs } from "antd";
+import { Collapse, Tabs, Tooltip } from "antd";
 import { NextPage } from "next";
 import { CardInner, CardNoPadding } from "../components/Card";
 import { Navbar } from "../components/Navbar";
@@ -214,10 +214,16 @@ const Page: NextPage<{}> = () => (
         <TabPaneWhite tab="Patient Information" key="1">
           <CardInner>
             <DataGrid>
-              {DASHBOARD_DATA.map(({ label, value }) => (
+              {DASHBOARD_DATA.map(({ label, value, help }) => (
                 <ElementGrid>
                   <span>
-                    <strong>{label}:</strong>
+                    {help ? (
+                      <Tooltip title={help} trigger="click">
+                        <strong>{label}:</strong>
+                      </Tooltip>
+                    ) : (
+                      <strong>{label}:</strong>
+                    )}
                   </span>
                   <span>{value}</span>
                 </ElementGrid>
