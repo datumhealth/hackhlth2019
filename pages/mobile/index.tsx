@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import styled from "@emotion/styled";
 import { Global, css } from "@emotion/core";
+import Router from "next/router";
 
 const Contents = () => (
   <svg
@@ -103,7 +104,12 @@ const Contents = () => (
     />
     <circle cx="174" cy="305" r="4" fill="#4AE0D0" />
     <line x1="135.5" y1="290" x2="135.5" y2="326" stroke="#B9B9B9" />
-    <g filter="url(#filter0_d)">
+    <g
+      filter="url(#filter0_d)"
+      onClick={() => {
+        Router.push("/mobile/add_diary");
+      }}
+    >
       <rect x="10" y="383" width="250" height="51" rx="4" fill="#7650E7" />
     </g>
     <path
