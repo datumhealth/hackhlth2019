@@ -3,6 +3,7 @@ import config from "./config.json";
 import idx from "idx";
 import { ColumnProps } from "antd/lib/table";
 import styled from "@emotion/styled";
+import { Tag } from "antd";
 
 const DRGS = (
   idx(
@@ -48,6 +49,19 @@ export const ROWS = Array(10)
   .fill(null)
   .map(_ => genRow());
 
+const Iq = ({ iq }: { iq: string }) => {
+  if (iq === "Partially Met") {
+    return <Tag color="gold">{iq}</Tag>;
+  }
+  if (iq === "Met") {
+    return <Tag color="green">{iq}</Tag>;
+  }
+  if (iq === "Not Met") {
+    return <Tag color="red">{iq}</Tag>;
+  }
+  return <Tag color="cyan">{iq}</Tag>;
+};
+
 export const COLUMNS: ColumnProps<any>[] = config["Patient Dashboard - Details"]
   .filter(row => row["Summary?"] === "TRUE")
   .filter(
@@ -72,6 +86,9 @@ export const COLUMNS: ColumnProps<any>[] = config["Patient Dashboard - Details"]
     render: (v: any) => {
       if (!v) {
         return "";
+      }
+      if (row.key === "iq") {
+        return <Iq iq={v} />;
       }
       if (typeof v !== "object") {
         return v.toString();
