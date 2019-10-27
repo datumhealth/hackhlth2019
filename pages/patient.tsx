@@ -366,7 +366,7 @@ const Page: NextPage<{}> = () => (
             </DataGrid>
           </CardInner>
           <CardInner>
-            <span>Day-to-Day Summaries:</span>
+            <h3>Day-to-Day Summaries:</h3>
             <Collapse defaultActiveKey={["1"]}>
               <Panel header="10/21/2019" key="1">
                 <ul>
@@ -522,6 +522,15 @@ const Page: NextPage<{}> = () => (
                 Send documents
               </Button>
             </Coverage>
+          </CardInner>
+          <CardInner>
+            <h3>Communication History:</h3>
+            <Collapse defaultActiveKey={["1"]}>
+              <Panel header="10/27/2019 at 7:70am" key="1">
+                Sent <strong>Social Determinants of Health Form</strong> to
+                casemanagement@anthemBCBS.com.
+              </Panel>
+            </Collapse>
           </CardInner>
         </TabPaneWhite>
       </Tabs>

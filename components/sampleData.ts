@@ -57,6 +57,9 @@ export const COLUMNS = config["Patient Dashboard - Details"]
       return 0;
     },
     render: (v: any) => {
+      if (!v) {
+        return "";
+      }
       if (typeof v !== "object") {
         return v.toString();
       }
