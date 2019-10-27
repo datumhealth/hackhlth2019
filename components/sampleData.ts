@@ -44,7 +44,19 @@ export const COLUMNS = config["Patient Dashboard - Details"]
     title: row.label,
     dataIndex: row.key,
     key: row.key,
-    render: v => {
+    sorter: (a: any, b: any) => {
+      const av = a[row.key];
+      const bv = b[row.key];
+      if (typeof av === "number") {
+        return av > bv ? 1 : -1;
+      } else if (typeof av === "string") {
+        return av.localeCompare(bv);
+      } else if (av.toLocaleDateString) {
+        return (av as Date).getTime() > (bv as Date).getTime() ? 1 : -1;
+      }
+      return 0;
+    },
+    render: (v: any) => {
       if (typeof v !== "object") {
         return v.toString();
       }
