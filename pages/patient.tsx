@@ -1,16 +1,15 @@
 import styled from "@emotion/styled";
-import { Collapse, Tabs, Tooltip, Button, message } from "antd";
+import { Button, message, Tabs } from "antd";
 import { NextPage } from "next";
-import { CardInner, CardNoPadding, CardInnerCenter } from "../components/Card";
-import { Navbar } from "../components/Navbar";
-import { DASHBOARD_DATA } from "../components/sampleData";
+import { CardInner, CardInnerCenter } from "../components/Card";
+import { CommunicationHistory } from "../components/CommunicationHistory";
 import { DenialRisk } from "../components/DenialRisk";
 import { DischargePlan } from "../components/DischargePlan";
-import { CommunicationHistory } from "../components/CommunicationHistory";
 import { InterQual } from "../components/InterQual";
+import { Navbar } from "../components/Navbar";
 import { PatientLeftSummary } from "../components/PatientLeftSummary";
+import { PatientInfo } from "../components/PatientInfo";
 const { TabPane } = Tabs;
-const { Panel } = Collapse;
 
 const TabPaneWhite = styled(TabPane)`
   background-color: #fff;
@@ -161,17 +160,6 @@ const CoverageInfo = () => (
   </svg>
 );
 
-const DataGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 15px;
-`;
-
-const ElementGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-`;
-
 const Page: NextPage<{}> = () => (
   <div>
     <Navbar />
@@ -179,47 +167,7 @@ const Page: NextPage<{}> = () => (
       <PatientLeftSummary />
       <Tabs type="card">
         <TabPaneWhite tab="Patient Information" key="1">
-          <CardInner>
-            <DataGrid>
-              {DASHBOARD_DATA.map(({ label, value, help }) => (
-                <ElementGrid>
-                  <span>
-                    {help ? (
-                      <Tooltip title={help} trigger="click">
-                        <strong>{label}:</strong>
-                      </Tooltip>
-                    ) : (
-                      <strong>{label}:</strong>
-                    )}
-                  </span>
-                  <span>{value}</span>
-                </ElementGrid>
-              ))}
-            </DataGrid>
-          </CardInner>
-          <CardInner>
-            <h3>Day-to-Day Summaries:</h3>
-            <Collapse defaultActiveKey={["1"]}>
-              <Panel header="10/21/2019" key="1">
-                <ul>
-                  <li>transferred to internal medicine floor</li>
-                  <li>
-                    continued diffused abdominal pain associated with nausea and
-                    vomiting
-                  </li>
-                  <li>CBC - white count 10.5 K/uL, hgb 9.6, hct 27.9</li>
-                  <li>
-                    IVF ,regular insulin, mupirocin, heparin sc, detemir sc,
-                    insulin aspart sc
-                  </li>
-                  <li>
-                    Blood sugar controlled on sliding scale insulin with Levemir
-                    20 units every night.
-                  </li>
-                </ul>
-              </Panel>
-            </Collapse>
-          </CardInner>
+          <PatientInfo />
         </TabPaneWhite>
         <TabPaneWhite tab="Denial Risk" key="6">
           <CardInner>

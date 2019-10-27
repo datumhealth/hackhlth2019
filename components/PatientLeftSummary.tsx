@@ -1,6 +1,6 @@
 import { Tag } from "antd";
 import styled from "@emotion/styled";
-import { fetchProperty } from "./sampleData";
+import { fetchProperty, DENIAL_RISK } from "./sampleData";
 import { CardNoPadding, CardInner } from "./Card";
 
 const DRG = () => (
@@ -154,7 +154,7 @@ export const InfoHeader = () => (
       </InfoSub>
     </div>
     <div>
-      <Tag color="red">100%</Tag>
+      <Tag color="red">{DENIAL_RISK}</Tag>
     </div>
   </InfoHeaderWrapper>
 );
