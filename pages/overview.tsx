@@ -1,7 +1,7 @@
-import { Button, Icon } from "antd";
-import { NextPage } from "next";
-import { css } from "@emotion/core";
 import styled from "@emotion/styled";
+import { Icon } from "antd";
+import { NextPage } from "next";
+import { Card } from "../components/Card";
 
 interface Props {
   userAgent?: string;
@@ -66,6 +66,7 @@ const NavTab = styled.div<{ selected: boolean }>`
 `;
 
 const NavbarWrapper = styled.div`
+  background-color: #fff;
   width: 100%;
   height: 72px;
   display: flex;
@@ -117,9 +118,16 @@ const Navbar = () => (
   </NavbarWrapper>
 );
 
+const Wrapper = styled.div`
+  padding: 33px 23px;
+`;
+
 const Page: NextPage<Props> = ({ userAgent }) => (
   <div>
     <Navbar />
+    <Wrapper>
+      <Card>test</Card>
+    </Wrapper>
   </div>
 );
 
