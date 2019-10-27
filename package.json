@@ -1,0 +1,22 @@
+{
+  "name": "hackhlth2019",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^9.1.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.7",
+    "@types/react": "^16.9.11",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
+  }
+}
