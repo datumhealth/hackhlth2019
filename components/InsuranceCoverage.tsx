@@ -3,6 +3,7 @@ import { Button, message, Modal, Form, Select } from "antd";
 import { CardInner } from "../components/Card";
 import { CommunicationHistory } from "../components/CommunicationHistory";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Coverage = styled.div`
   display: flex;
@@ -110,15 +111,27 @@ export const InsuranceCoverage = () => {
   const [emailSent, setEmailSent] = useState<boolean>(false);
   return (
     <>
-      <CardInner>
-        <Coverage>
-          <CoverageInfo />
-          <InsuranceModal setEmailSent={setEmailSent} />
-        </Coverage>
-      </CardInner>
-      <CardInner>
-        <CommunicationHistory emailSent={emailSent} />
-      </CardInner>
+      <motion.div
+        style={{ marginTop: "20px", opacity: "0" }}
+        animate={{ marginTop: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <CardInner>
+          <Coverage>
+            <CoverageInfo />
+            <InsuranceModal setEmailSent={setEmailSent} />
+          </Coverage>
+        </CardInner>
+      </motion.div>
+      <motion.div
+        style={{ marginTop: "20px", opacity: "0" }}
+        animate={{ marginTop: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <CardInner>
+          <CommunicationHistory emailSent={emailSent} />
+        </CardInner>
+      </motion.div>
     </>
   );
 };

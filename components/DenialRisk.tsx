@@ -97,10 +97,18 @@ export const DenialRisk = () => (
     <h1>Denial Risk</h1>
     <div>
       <Main>
-        <motion.div>
+        <motion.div
+          style={{ marginTop: "20px", opacity: "0" }}
+          animate={{ marginTop: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <RiskDial />
         </motion.div>
-        <motion.div>
+        <motion.div
+          style={{ marginTop: "20px", opacity: "0" }}
+          animate={{ marginTop: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+        >
           <h2>This patient has a 87% risk of denial.</h2>
           <p>
             InterQual criteria is only partially met. To decrease the likelihood
@@ -110,8 +118,14 @@ export const DenialRisk = () => (
         </motion.div>
       </Main>
       <Criteria>
-        {CRITERIA.map((p: CriterionProps) => (
-          <Criterion {...p} />
+        {CRITERIA.map((p: CriterionProps, i) => (
+          <motion.div
+            style={{ marginTop: "20px", opacity: "0" }}
+            animate={{ marginTop: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
+            <Criterion {...p} />
+          </motion.div>
         ))}
       </Criteria>
     </div>
