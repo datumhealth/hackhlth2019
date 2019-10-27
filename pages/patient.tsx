@@ -6,6 +6,7 @@ import { Navbar } from "../components/Navbar";
 import { DASHBOARD_DATA } from "../components/sampleData";
 import { DenialRisk } from "../components/DenialRisk";
 import { DischargePlan } from "../components/DischargePlan";
+import { CommunicationHistory } from "../components/CommunicationHistory";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
@@ -528,13 +529,7 @@ const Page: NextPage<{}> = () => (
             </Coverage>
           </CardInner>
           <CardInner>
-            <h3>Communication History:</h3>
-            <Collapse defaultActiveKey={["1"]}>
-              <Panel header="10/27/2019 at 7:70am" key="1">
-                Sent <strong>Social Determinants of Health Form</strong> to
-                casemanagement@anthemBCBS.com.
-              </Panel>
-            </Collapse>
+            <CommunicationHistory />
           </CardInner>
         </TabPaneWhite>
         <TabPaneWhite tab="Denial Risk" key="6">
