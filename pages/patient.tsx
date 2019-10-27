@@ -4,6 +4,7 @@ import { NextPage } from "next";
 import { CardInner, CardNoPadding, CardInnerCenter } from "../components/Card";
 import { Navbar } from "../components/Navbar";
 import { DASHBOARD_DATA } from "../components/sampleData";
+import { DenialRisk } from "../components/DenialRisk";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
@@ -531,6 +532,11 @@ const Page: NextPage<{}> = () => (
                 casemanagement@anthemBCBS.com.
               </Panel>
             </Collapse>
+          </CardInner>
+        </TabPaneWhite>
+        <TabPaneWhite tab="Denial Risk" key="6">
+          <CardInner>
+            <DenialRisk />
           </CardInner>
         </TabPaneWhite>
       </Tabs>
