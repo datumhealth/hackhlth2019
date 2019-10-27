@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { Icon } from "antd";
+import { Icon, Table } from "antd";
 import { NextPage } from "next";
 import { Card } from "../components/Card";
+import { COLUMNS, ROWS } from "../components/sampleData";
 
 interface Props {
   userAgent?: string;
@@ -126,7 +127,9 @@ const Page: NextPage<Props> = ({ userAgent }) => (
   <div>
     <Navbar />
     <Wrapper>
-      <Card>test</Card>
+      <Card>
+        <Table columns={COLUMNS} dataSource={ROWS} />
+      </Card>
     </Wrapper>
   </div>
 );

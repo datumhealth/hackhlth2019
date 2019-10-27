@@ -1,0 +1,273 @@
+{
+  "Patient Dashboard - Details": [
+    {
+      "label": "Unit",
+      "description": "the unit the pt is in - ex ICU, Med Surg",
+      "key": "unit",
+      "Sample": "MICU",
+      "Options": "ICU\nMed Surg\nOB \nPEDS",
+      "FHIR": "Encounter.location.location | last / Location.name",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Bed #",
+      "description": "Bed # - Ex 508 A, 508 B",
+      "key": "bed",
+      "Sample": "508 A",
+      "Options": "120\n122 A\n508 A",
+      "FHIR": "Encounter.location.location / Location.name",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Admit Date",
+      "description": "Date patient was admitted to the facility",
+      "key": "admitDate",
+      "Sample": "10/20/19",
+      "Options": "n/a",
+      "FHIR": "Encounter.period.start",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Pt. Name",
+      "description": "Name of the patient",
+      "key": "name",
+      "Sample": "Hannah Montana",
+      "Options": "n/a",
+      "FHIR": "Encounter.subject / Patient.name.text",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Age",
+      "description": "age",
+      "Sample": "55"
+    },
+    {
+      "label": "Pt. Address",
+      "description": "Pt. Address",
+      "Sample": "555 Orchard St. \nLas Vegas, NV 12345",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Pt Phone #",
+      "description": "Pt Phone #",
+      "Sample": "919-555-1212",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Primary Insurance Coverage",
+      "description": "Patient's insurance Coverage",
+      "key": "insurance",
+      "Sample": "Anthem BCBS",
+      "Options": "Medicare\nUnited Health Care\nAetna\nCommunity Care Plan (MDCD)",
+      "FHIR": "Coverage",
+      "FHIR JS": "encounter.patient.coverages.filter(c => c.status === 'active').map(c => c.payor.name)",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "PCP",
+      "description": "primary care physisican",
+      "Sample": "Pedro Checo, MD",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "PCP Phone #",
+      "description": "PCP phone #",
+      "Sample": "919-222-1616",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Admitting MD",
+      "description": "The MD who admitted the patient",
+      "Sample": "John Miller, MD",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Admitting MD Phone #",
+      "description": "Admit doctor phone #",
+      "Sample": "919-818-7070"
+    },
+    {
+      "label": "Admitting DRG",
+      "description": "The admitting DRG when patient gets registered",
+      "key": "drg",
+      "Sample": "R11.2 - Nausea & Vomiting",
+      "Options": "only 1 DRG is assigned at a time. it woud be the one that would give the hospital the most reimbursement",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Working DRG",
+      "description": "The DRG the patient has been assigned to based on the review of the clinical data in the medical record.  The DRGs are a patient classification\nscheme which provides a means of relating the type of patients a hospital treats (i.e., its case mix)\nto the costs incurred by the hospital.  This is the form of reimbursement that the CMS uses to pay hospitals for Medicare and Medicaid recipients. ",
+      "key": "drg",
+      "Sample": "639-DIABETES W/O CC/MCC\n",
+      "Options": "only 1 DRG is assigned at a time. it woud be the one that would give the hospital the most reimbursement",
+      "FHIR": "ExplanationOfBenefit.diagnosis.packageCode",
+      "Summary?": "TRUE"
+    },
+    {
+      "label": "Final DRG",
+      "description": "The final DRG when patient gets discharged",
+      "Sample": "639-DIABETES W/O CC/MCC\r\n",
+      "Options": "only 1 DRG is assigned at a time. it woud be the one that would give the hospital the most reimbursement",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "GLOS",
+      "description": "The Goal length of stay based on the working DRG",
+      "key": "glos",
+      "Sample": "2.1",
+      "Options": "1 #",
+      "FHIR": "Goal.target.detailQuantity",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "ALOS",
+      "description": "The actual length of stay based on DRG",
+      "key": "alos",
+      "Sample": "2",
+      "Options": "Current Date minus Date of admission ",
+      "FHIR": "Encounter.length",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "IQ Criteria \n Status",
+      "description": "The status of the criteria for the stay of the patient using Interqual guidelines. InterQual® An evidence-based clinical decision support solution to help payers, providers, and government agencies make clinically appropriate medical utilization decisions.",
+      "key": "iq",
+      "Sample": "Partially Met",
+      "Options": "Met\nNot Met\nPartially Met",
+      "FHIR": "??",
+      "Summary?": "TRUE",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Date Last Modified",
+      "description": "Date the patient's data was last touched",
+      "key": "lastModified",
+      "Sample": "10/25/19",
+      "Options": "1 date",
+      "FHIR": "??",
+      "Summary?": "TRUE",
+      "Dashboard?": "FALSE"
+    },
+    {
+      "label": "Last Modified By",
+      "description": "Who was the last Case Manager who worked on the patient",
+      "key": "lastModifiedBy",
+      "Sample": "Mary Smith, RN",
+      "Options": "1 person",
+      "FHIR": "??",
+      "Summary?": "TRUE",
+      "Dashboard?": "FALSE"
+    },
+    {
+      "label": "Case Management Assessment Completed?",
+      "Sample": "Yes",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Discharge Plan Completed?",
+      "Sample": "Yes",
+      "Options": "Yes\nNo",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Discharge Disposition",
+      "Sample": "Home",
+      "Options": "Home\nSNF\nICF\nOther"
+    },
+    {
+      "label": "Barriers to Care- SDoH- Social Determinants of Health",
+      "Sample": "Transportation",
+      "Options": "Food \nTransportation \nHousing \nLiteracy \nEducation",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Patient's Preferred Pharmacy",
+      "Sample": "CVS -  Lebanon St., Frisco, TX",
+      "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Medications"
+    }
+  ],
+  "IQ and sample summary": [],
+  "User Stories": [
+    {
+      "As a": "As a",
+      "Case Manager ": "Case Manager ",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "view the IQ criteria of admits that are Partially Met  in the appliction",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "determine the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan",
+      "so that the hospital does not get issued a denial": "so that the hospital does not get issued a denial"
+    },
+    {
+      "As a": "As a",
+      "Case Manager ": "Case Manager ",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "provide easy the patient to follow discharge instructions/care plan and send it to the patient through their phone",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "prevent a readmission for the same diagnosis",
+      "so that the hospital does not get issued a denial": "so that the hospital does not get issued a denial"
+    },
+    {
+      "As a": "As a",
+      "Case Manager ": "Case Manager ",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "easily view the DRG information in the app for the patient with the GLOS (geometric/average length of stay)",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "identify if the patient is reaching the GLOS  ",
+      "so that the hospital does not get issued a denial": "to assist me with Discharge planning"
+    },
+    {
+      "As a": "As a",
+      "Case Manager ": "Case Manager ",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "review the clinical details of the patients \"intensity of service\" and \"severity of illness\" each day without needing to manualy go to the EMR",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "send this to the payor timely",
+      "so that the hospital does not get issued a denial": "so that the hospital does not get issued a denial"
+    },
+    {
+      "As a": "As a",
+      "Case Manager ": "Case Manager ",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "view the status of the priorauthorization number in the app",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "determine if this process has been completed or not",
+      "so that the hospital does not get issued a denial": "so that the hospital does not get issued a denial"
+    },
+    {
+      "As a": "As a",
+      "Case Manager ": "Patient",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "view the discharge instructions/care plan on my phone ",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "easily adhere to the treatment plan",
+      "so that the hospital does not get issued a denial": "so that I don't get readmitted for the same diagnosis and have a succesful outcome"
+    },
+    {
+      "As a": "As a",
+      "Case Manager ": "Health Plan",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "receive the clinical details of the patients \"intensity of service\" and \"severity of illness\" each day ",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "make a decision to either approve or deny the hospital stay based on medical necessity"
+    },
+    {
+      "As a": "As a",
+      "Case Manager ": "Health Plan",
+      "I need the ability to": "I need the ability to",
+      "view the IQ criteria of admits that are Not Met  in the appliction": "obtain a copy of the clinical assessment from the hospital with the same questions already asked by the hospital CM which may include SDoH",
+      "so I can": "so I can ",
+      "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "have valuable data needed to identify risks for the patient",
+      "so that the hospital does not get issued a denial": "so I can have the most current information about the members health and  manage their care better"
+    }
+  ]
+}

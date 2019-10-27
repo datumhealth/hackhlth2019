@@ -1,5 +1,5 @@
-import { NextPage } from "next";
 import { Button } from "antd";
+import { NextPage } from "next";
 
 interface Props {
   userAgent?: string;
