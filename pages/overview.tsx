@@ -4,6 +4,7 @@ import { NextPage } from "next";
 import { Card } from "../components/Card";
 import { Navbar } from "../components/Navbar";
 import { COLUMNS, ROWS } from "../components/sampleData";
+import Router from "next/router";
 
 const Wrapper = styled.div`
   padding: 33px 23px;
@@ -40,7 +41,12 @@ const Page: NextPage<{}> = () => (
           </Actions>
           <Button icon="area-chart" size="large"></Button>
         </TableHeader>
-        <Table columns={COLUMNS} dataSource={ROWS} bordered={true} />
+        <Table
+          onRowClick={() => Router.push("/patient")}
+          columns={COLUMNS}
+          dataSource={ROWS}
+          bordered={true}
+        />
       </Card>
     </Wrapper>
   </div>
