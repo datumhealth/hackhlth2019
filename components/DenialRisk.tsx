@@ -66,7 +66,7 @@ const Criterion = ({ name, impact, score, advice }: CriterionProps) => (
   <Card
     title={
       <>
-        <h4>{name}</h4>
+        <h5>{name}</h5>
         <ScoreDot score={score} />
         <ScoreText score={score} />
       </>
