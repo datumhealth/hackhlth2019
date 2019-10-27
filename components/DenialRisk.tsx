@@ -13,7 +13,7 @@ const Main = styled.div`
   grid-column-gap: 62px;
 `;
 
-type Score = "poor" | "good";
+type Score = "poor" | "good" | "fair";
 
 const scoreToColor = (score: Score): string => {
   switch (score) {
@@ -21,6 +21,8 @@ const scoreToColor = (score: Score): string => {
       return "#F5222D";
     case "good":
       return "#7CB305";
+    case "fair":
+      return "#FAAD14";
     default:
       return "#ccc";
   }

@@ -252,7 +252,7 @@
     },
     {
       "name": "Admitting doctor",
-      "score": "poor",
+      "score": "fair",
       "advice": "The admiting doctor frequently receives denials due to extended length of stay.",
       "impact": "high"
     },
@@ -264,8 +264,8 @@
     },
     {
       "name": "Diagnosis",
-      "score": "good",
-      "advice": "Diabetes mellitus is rarely denied.",
+      "score": "fair",
+      "advice": "Diabetes mellitus is sometimes denied.",
       "impact": "medium"
     },
     {
