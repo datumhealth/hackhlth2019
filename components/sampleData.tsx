@@ -82,6 +82,20 @@ export const COLUMNS: ColumnProps<any>[] = config["Patient Dashboard - Details"]
     }
   }));
 
+COLUMNS.unshift({
+  title: "Loc",
+  dataIndex: "unit",
+  key: "loc",
+  render: (_: any, v: any) => {
+    return (
+      <>
+        <p>{v.unit}</p>
+        <small>Bed {v.bed}</small>
+      </>
+    );
+  }
+});
+
 COLUMNS.push({
   title: "Last Modified",
   dataIndex: "lastModified",
