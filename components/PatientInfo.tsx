@@ -34,7 +34,7 @@ export const PatientInfo = () => (
               )}
             </span>
             <span>
-              {value && value.includes("Lebanon") ? (
+              {value && value.includes("NV") ? (
                 <a href={makeAddrLink(value)} target="_blank">
                   {value}
                 </a>
