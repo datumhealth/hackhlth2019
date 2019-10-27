@@ -2,10 +2,11 @@ import Faker from "faker";
 import config from "./config.json";
 import idx from "idx";
 import { ColumnProps } from "antd/lib/table";
+import styled from "@emotion/styled";
 
 const DRGS = (
   idx(
-    config["Patient Dashboard - Details"].find(r => r.key === "drg"),
+    config["Patient Dashboard - Details"].find(r => r.label === "Working DRG"),
     _ => _.Options
   ) || ""
 ).split("\n");
@@ -82,6 +83,10 @@ export const COLUMNS: ColumnProps<any>[] = config["Patient Dashboard - Details"]
     }
   }));
 
+const Top = styled.p`
+  margin: 0;
+`;
+
 COLUMNS.unshift({
   title: "Loc",
   dataIndex: "unit",
@@ -89,7 +94,7 @@ COLUMNS.unshift({
   render: (_: any, v: any) => {
     return (
       <>
-        <p>{v.unit}</p>
+        <Top>{v.unit}</Top>
         <small>Bed {v.bed}</small>
       </>
     );
@@ -108,7 +113,7 @@ COLUMNS.push({
   render: (_: any, v: any) => {
     return (
       <>
-        <p>{new Date(v.lastModified).toLocaleDateString()}</p>
+        <Top>{new Date(v.lastModified).toLocaleDateString()}</Top>
         <small>by {v.lastModifiedBy}</small>
       </>
     );
