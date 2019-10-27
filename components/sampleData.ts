@@ -77,3 +77,5 @@ export const DASHBOARD_DATA = config["Patient Dashboard - Details"]
     value: row.Sample,
     help: row.description
   }));
+
+export const CRITERIA = config["Risk Score"];

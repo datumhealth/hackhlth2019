@@ -224,6 +224,44 @@
       "key": "Dietician\nEndocrinologist\nAttending MD\nSocial Worker\nCase Manager\nPharmacist\nPodiatrists\r\nOptometrists\nCertified diabetes educators"
     }
   ],
+  "Risk Score": [
+    {
+      "name": "InterQual criteria is partially met",
+      "score": "poor",
+      "advice": "Ensure that unmet criteria, as specified in the left pane, are resolved.",
+      "impact": "highest"
+    },
+    {
+      "name": "Insurance coverage",
+      "score": "good",
+      "advice": "Anthem BCBS has a low rate of denying patients with similar profiles.",
+      "impact": "high"
+    },
+    {
+      "name": "Admitting doctor",
+      "score": "poor",
+      "advice": "The admiting doctor frequently receives denials due to extended length of stay.",
+      "impact": "high"
+    },
+    {
+      "name": "Procedure is medically necessary",
+      "score": "good",
+      "advice": "The procedures enacted were deemed to be medically necessary by InterQual.",
+      "impact": "medium"
+    },
+    {
+      "name": "Diagnosis",
+      "score": "good",
+      "advice": "Diabetes mellitus is rarely denied.",
+      "impact": "medium"
+    },
+    {
+      "name": "No readmissions",
+      "score": "good",
+      "advice": "Higher readmissions leads to greater denials.",
+      "impact": "low"
+    }
+  ],
   "IQ and sample summary": [],
   "User Stories": [
     {

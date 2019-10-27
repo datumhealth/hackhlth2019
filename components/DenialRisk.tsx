@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import dynamic from "next/dynamic";
 import { Card } from "antd";
+import dynamic from "next/dynamic";
+import { CRITERIA } from "./sampleData";
 
 const RiskDial = dynamic(import("./RiskDial").then(x => x.RiskDial), {
   ssr: false
@@ -85,6 +86,7 @@ const Criteria = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   grid-column-gap: 20px;
+  grid-row-gap: 30px;
 `;
 
 export const DenialRisk = () => (
@@ -103,22 +105,7 @@ export const DenialRisk = () => (
         </div>
       </Main>
       <Criteria>
-        {[
-          {
-            name: "InterQual criteria is partially met",
-            score: "poor",
-            advice:
-              "Ensure that unmet criteria, as specified in the left pane, are resolved.",
-            impact: "highest"
-          },
-          {
-            name: "Insurance coverage",
-            score: "good",
-            advice:
-              "Anthem BCBS has a low rate of denying patients with similar profiles.",
-            impact: "high"
-          }
-        ].map((p: CriterionProps) => (
+        {CRITERIA.map((p: CriterionProps) => (
           <Criterion {...p} />
         ))}
       </Criteria>
