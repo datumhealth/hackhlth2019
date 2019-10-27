@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next";
+import Router from "next/router";
 
 const Wrap = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const Wrap = styled.div`
 
 const Page: NextPage<{}> = () => (
   <Wrap>
-    <img src="/story.svg" />
+    <img src="/story.svg" onClick={() => Router.push("/mobile")} />
   </Wrap>
 );
 

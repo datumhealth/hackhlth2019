@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next";
 import Router from "next/router";
+import { css, Global } from "@emotion/core";
 
 const Wrap = styled.div`
   display: flex;
@@ -12,6 +13,13 @@ const Wrap = styled.div`
 
 const Page: NextPage<{}> = () => (
   <Wrap>
+    <Global
+      styles={css`
+        body {
+          margin: 0;
+        }
+      `}
+    />
     <img src="/adddiary.svg" onClick={() => Router.push("/mobile/story")} />
   </Wrap>
 );
