@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.22",
     "@zeit/next-less": "^1.0.1",
     "antd": "^3.24.2",
     "less": "^3.10.3",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^12.11.7",
     "@types/react": "^16.9.11",
+    "babel-plugin-emotion": "^10.0.22",
     "babel-plugin-import": "^1.12.2",
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"
