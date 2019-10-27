@@ -46,6 +46,11 @@
       "Sample": "55"
     },
     {
+      "label": "Sex",
+      "description": "sex of the patient",
+      "Sample": "Male"
+    },
+    {
       "label": "Pt. Address",
       "description": "Pt. Address",
       "Sample": "555 Orchard St. \nLas Vegas, NV 12345",
@@ -61,7 +66,7 @@
       "label": "Primary Insurance Coverage",
       "description": "Patient's insurance Coverage",
       "key": "insurance ",
-      "Sample": "Anthem BCBS \nFax #: 919-888-0404\nutilizationmgmt@anthemBCBS.com\ncasemanagement@anthemBCBS.com",
+      "Sample": "Anthem BCBS ",
       "Options": "Medicare\nUnited Health Care\nAetna\nCommunity Care Plan (MDCD)",
       "FHIR": "Coverage",
       "FHIR JS": "encounter.patient.coverages.filter(c => c.status === 'active').map(c => c.payor.name)",
@@ -69,8 +74,13 @@
       "Dashboard?": "TRUE"
     },
     {
+      "label": "Primary Insurance Coverage address",
+      "Sample": "55 Blue Drive, Las Vegas, NV 12345"
+    },
+    {
       "label": "Secondary Insurance Coverage",
-      "description": "Secondary Insurance Coverage"
+      "description": "Secondary Insurance Coverage",
+      "Sample": "N/A"
     },
     {
       "label": "PCP",
@@ -170,40 +180,50 @@
     },
     {
       "label": "Case Management Assessment Completed?",
+      "description": "From EMR CM Assessment marked complete",
       "Sample": "Yes",
       "Dashboard?": "TRUE"
     },
     {
       "label": "Discharge Plan Completed?",
+      "description": "From EMR DC Plan marked complete",
       "Sample": "Yes",
       "Options": "Yes\nNo",
       "Dashboard?": "TRUE"
     },
     {
       "label": "Discharge Disposition",
-      "Sample": "Home",
+      "description": "The DC disposition of the patient",
       "Options": "Home\nSNF\nICF\nOther"
     },
     {
       "label": "Barriers to Care- SDoH- Social Determinants of Health",
+      "description": "SDoH Issues identified ",
       "Sample": "Literacy",
       "Options": "Food \nTransportation \nHousing \nLiteracy \nEducation",
       "Dashboard?": "TRUE"
     },
     {
       "label": "Patient's Preferred Pharmacy",
+      "description": "Patient's Preferred Pharmacy",
       "Sample": "CVS -  Lebanon St., Frisco, TX",
       "Dashboard?": "TRUE"
     },
     {
-      "label": "Medications"
+      "label": "Allergies",
+      "description": "Patient Allergies",
+      "Sample": "Penicillin"
+    },
+    {
+      "label": "Medications",
+      "description": "Current Medications",
+      "Sample": "Metformin, Humulin R"
     },
     {
       "label": "Care Team",
       "key": "Dietician\nEndocrinologist\nAttending MD\nSocial Worker\nCase Manager\nPharmacist\nPodiatrists\r\nOptometrists\nCertified diabetes educators"
     }
   ],
-  "Pitch Deck": [],
   "IQ and sample summary": [],
   "User Stories": [
     {
@@ -276,6 +296,9 @@
       "so I can": "so I can ",
       "determine  the missing elements in the patients clinical status to resolve and convert the stay to Criteria Met.or, expedite the discharge plan": "have valuable data needed to identify risks for the patient",
       "so that the hospital does not get issued a denial": "so I can have the most current information about the members health and  manage their care better"
+    },
+    {
+      "Case Manager ": "Fax #: 919-888-0404 utilizationmgmt@anthemBCBS.com casemanagement@anthemBCBS.com"
     }
   ]
 }
