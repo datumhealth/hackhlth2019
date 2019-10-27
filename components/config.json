@@ -76,7 +76,7 @@
       "Sample": "55 Blue Drive, Las Vegas, NV 12345"
     },
     {
-      "label": "Prior Auuthorization Number"
+      "label": "Prior Authorization Number"
     },
     {
       "label": "Secondary Insurance Coverage",
@@ -109,7 +109,6 @@
     {
       "label": "Admitting DRG",
       "description": "The admitting DRG when patient gets registered",
-      "key": "drg",
       "Sample": "R11.2 - Nausea & Vomiting",
       "Options": "only 1 DRG is assigned at a time. it woud be the one that would give the hospital the most reimbursement",
       "Dashboard?": "TRUE"
@@ -210,7 +209,7 @@
     {
       "label": "Barriers to Care- SDoH- Social Determinants of Health",
       "description": "SDoH Issues identified ",
-      "Sample": "Literacy",
+      "Sample": "Food, Transportation",
       "Options": "Food \nTransportation \nHousing \nLiteracy \nEducation",
       "Dashboard?": "TRUE"
     },
