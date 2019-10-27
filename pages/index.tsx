@@ -1,11 +1,15 @@
 import { NextPage } from "next";
+import { Button } from "antd";
 
 interface Props {
   userAgent?: string;
 }
 
 const Page: NextPage<Props> = ({ userAgent }) => (
-  <main>Your user agent: {userAgent}</main>
+  <main>
+    Your user agent: {userAgent}
+    <Button>test</Button>
+  </main>
 );
 
 Page.getInitialProps = async ({ req }) => {
