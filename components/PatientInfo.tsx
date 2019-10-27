@@ -15,6 +15,9 @@ const ElementGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
 `;
 
+const makeAddrLink = (addr: string) =>
+  `http://maps.google.com/maps?q=${encodeURIComponent(addr)}`;
+
 export const PatientInfo = () => (
   <>
     <CardInner>
@@ -30,7 +33,15 @@ export const PatientInfo = () => (
                 <strong>{label}:</strong>
               )}
             </span>
-            <span>{value}</span>
+            <span>
+              {value && value.includes("Lebanon") ? (
+                <a href={makeAddrLink(value)} target="_blank">
+                  {value}
+                </a>
+              ) : (
+                value
+              )}
+            </span>
           </ElementGrid>
         ))}
       </DataGrid>
