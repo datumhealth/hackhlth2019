@@ -153,6 +153,22 @@ COLUMNS.push({
   }
 });
 
+COLUMNS.find(c => c.key === "glos").title = (
+  <>
+    GL
+    <br />
+    OS
+  </>
+);
+
+COLUMNS.find(c => c.key === "alos").title = (
+  <>
+    AL
+    <br />
+    OS
+  </>
+);
+
 export const DASHBOARD_DATA = config["Patient Dashboard - Details"]
   .filter(row => row["Dashboard?"] !== "FALSE")
   .map(row => ({
