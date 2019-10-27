@@ -7,7 +7,6 @@
       "Sample": "MICU",
       "Options": "ICU\nMed Surg\nOB \nPEDS",
       "FHIR": "Encounter.location.location | last / Location.name",
-      "Summary?": "TRUE",
       "Dashboard?": "TRUE"
     },
     {
@@ -17,7 +16,6 @@
       "Sample": "508 A",
       "Options": "120\n122 A\n508 A",
       "FHIR": "Encounter.location.location / Location.name",
-      "Summary?": "TRUE",
       "Dashboard?": "TRUE"
     },
     {
@@ -121,7 +119,7 @@
       "description": "The DRG the patient has been assigned to based on the review of the clinical data in the medical record.  The DRGs are a patient classification\nscheme which provides a means of relating the type of patients a hospital treats (i.e., its case mix)\nto the costs incurred by the hospital.  This is the form of reimbursement that the CMS uses to pay hospitals for Medicare and Medicaid recipients. ",
       "key": "drg",
       "Sample": "639-DIABETES W/O CC/MCC\n",
-      "Options": "689-KIDNEY & URINARY TRACT INFECTIONS W MCC\n820-LYMPHOMA & LEUKEMIA W MAJOR O.R. PROCEDURE W MCC\n177-RESPIRATORY INFECTIONS & INFLAMMATIONS W MCC\n433-CIRRHOSIS & ALCOHOLIC HEPATITIS W CC\n467-REVISION OF HIP OR KNEE REPLACEMENT W CC\n540-OSTEOMYELITIS W CC\n652-KIDNEY TRANSPLANT\r\n872-SEPTICEMIA OR SEVERE SEPSIS W/O MV >96 HOURS W/O MCC\r\n312-SYNCOPE & COLLAPSE\r\n",
+      "Options": "689-KIDNEY & URINARY TRACT INFECTIONS W MCC\n820-LYMPHOMA & LEUKEMIA W MAJOR O.R. PROCEDURE W MCC\n177-RESPIRATORY INFECTIONS & INFLAMMATIONS W MCC\n433-CIRRHOSIS & ALCOHOLIC HEPATITIS W CC\n467-REVISION OF HIP OR KNEE REPLACEMENT W CC\n540-OSTEOMYELITIS W CC\n652-KIDNEY TRANSPLANT\n872-SEPTICEMIA OR SEVERE SEPSIS W/O MV >96 HOURS W/O MCC\n312-SYNCOPE & COLLAPSE",
       "FHIR": "ExplanationOfBenefit.diagnosis.packageCode",
       "Summary?": "TRUE"
     },
@@ -162,7 +160,7 @@
       "Sample": "Z3A.00-Encounter for supervision of normal first pregnancy, unspecified trimester"
     },
     {
-      "label": "IQ Criteria \n Status",
+      "label": "IQ Criteria Status",
       "description": "The status of the criteria for the stay of the patient using Interqual guidelines. InterQual® An evidence-based clinical decision support solution to help payers, providers, and government agencies make clinically appropriate medical utilization decisions.",
       "key": "iq",
       "Sample": "Partially Met",

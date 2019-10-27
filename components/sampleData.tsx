@@ -1,6 +1,14 @@
 import Faker from "faker";
 import config from "./config.json";
 import idx from "idx";
+import { ColumnProps } from "antd/lib/table";
+
+const DRGS = (
+  idx(
+    config["Patient Dashboard - Details"].find(r => r.key === "drg"),
+    _ => _.Options
+  ) || ""
+).split("\n");
 
 const genRow = () => ({
   unit: Faker.random.arrayElement([
@@ -27,7 +35,7 @@ const genRow = () => ({
     "Aetna",
     "Community Care Plan (MDCD)"
   ]),
-  drg: Faker.random.arrayElement(["639-DIABETES W/O CC/MCC"]),
+  drg: Faker.random.arrayElement(DRGS),
   glos: 2 + Faker.random.number(15),
   alos: 2 + Faker.random.number(15),
   iq: Faker.random.arrayElement(["Partially Met", "Met", "Not Met"]),
@@ -39,8 +47,11 @@ export const ROWS = Array(10)
   .fill(null)
   .map(_ => genRow());
 
-export const COLUMNS = config["Patient Dashboard - Details"]
+export const COLUMNS: ColumnProps<any>[] = config["Patient Dashboard - Details"]
   .filter(row => row["Summary?"] === "TRUE")
+  .filter(
+    row => !["unit", "bed", "lastModified", "lastModifiedBy"].includes(row.key)
+  )
   .map(row => ({
     title: row.label,
     dataIndex: row.key,
@@ -71,6 +82,25 @@ export const COLUMNS = config["Patient Dashboard - Details"]
     }
   }));
 
+COLUMNS.push({
+  title: "Last Modified",
+  dataIndex: "lastModified",
+  key: "lastModified",
+  sorter: (a: any, b: any) => {
+    const av = new Date(a.lastModified);
+    const bv = new Date(b.lastModified);
+    return (av as Date).getTime() > (bv as Date).getTime() ? 1 : -1;
+  },
+  render: (_: any, v: any) => {
+    return (
+      <>
+        <p>{new Date(v.lastModified).toLocaleDateString()}</p>
+        <small>by {v.lastModifiedBy}</small>
+      </>
+    );
+  }
+});
+
 export const DASHBOARD_DATA = config["Patient Dashboard - Details"]
   .filter(row => row["Dashboard?"] !== "FALSE")
   .map(row => ({
@@ -87,3 +117,5 @@ export const fetchProperty = (label: string) =>
 export const DENIAL_RISK = "87%";
 
 ROWS[0].name = fetchProperty("Pt. Name");
+ROWS[0].drg = fetchProperty("Working DRG");
+ROWS[0].iq = fetchProperty("IQ Criteria Status");
