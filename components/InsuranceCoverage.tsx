@@ -56,7 +56,11 @@ const CoverageInfo = () => (
   </svg>
 );
 
-export const InsuranceModal = () => {
+export const InsuranceModal = ({
+  setEmailSent
+}: {
+  setEmailSent: (s: boolean) => void;
+}) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
     <>
@@ -77,6 +81,7 @@ export const InsuranceModal = () => {
           message.info("Sending...");
           setTimeout(() => {
             message.info("Documents sent!");
+            setEmailSent(true);
           }, 1000);
         }}
         onCancel={() => setVisible(false)}
@@ -101,16 +106,19 @@ export const InsuranceModal = () => {
   );
 };
 
-export const InsuranceCoverage = () => (
-  <>
-    <CardInner>
-      <Coverage>
-        <CoverageInfo />
-        <InsuranceModal />
-      </Coverage>
-    </CardInner>
-    <CardInner>
-      <CommunicationHistory />
-    </CardInner>
-  </>
-);
+export const InsuranceCoverage = () => {
+  const [emailSent, setEmailSent] = useState<boolean>(false);
+  return (
+    <>
+      <CardInner>
+        <Coverage>
+          <CoverageInfo />
+          <InsuranceModal setEmailSent={setEmailSent} />
+        </Coverage>
+      </CardInner>
+      <CardInner>
+        <CommunicationHistory emailSent={emailSent} />
+      </CardInner>
+    </>
+  );
+};
