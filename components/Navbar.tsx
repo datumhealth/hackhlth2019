@@ -1,3 +1,4 @@
+import { css, Global } from "@emotion/core";
 import styled from "@emotion/styled";
 import { Icon } from "antd";
 import Link from "next/link";
@@ -113,5 +114,12 @@ export const Navbar = () => (
       <img src="/angbabaesanurse.png" height="28" width="28" />
       <span>Maria R.</span>
     </Profile>
+    <Global
+      styles={css`
+        body {
+          background-color: #eee !important;
+        }
+      `}
+    ></Global>
   </NavbarWrapper>
 );

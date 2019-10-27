@@ -19,13 +19,6 @@ class MyApp extends App {
     return (
       <>
         <Component {...pageProps} />
-        <Global
-          styles={css`
-            body {
-              background-color: #eee !important;
-            }
-          `}
-        ></Global>
       </>
     );
   }
