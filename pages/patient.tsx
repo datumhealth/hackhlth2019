@@ -5,6 +5,7 @@ import { CardInner, CardNoPadding, CardInnerCenter } from "../components/Card";
 import { Navbar } from "../components/Navbar";
 import { DASHBOARD_DATA } from "../components/sampleData";
 import { DenialRisk } from "../components/DenialRisk";
+import { DischargePlan } from "../components/DischargePlan";
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
@@ -504,7 +505,9 @@ const Page: NextPage<{}> = () => (
           </CardInnerCenter>
         </TabPaneWhite>
         <TabPaneWhite tab="Discharge Plan" key="4">
-          Content of Tab Pane 3
+          <CardInner>
+            <DischargePlan />
+          </CardInner>
         </TabPaneWhite>
         <TabPaneWhite tab="Insurance Coverage" key="5">
           <CardInner>
