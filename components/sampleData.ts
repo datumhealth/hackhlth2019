@@ -1,5 +1,6 @@
 import Faker from "faker";
 import config from "./config.json";
+import idx from "idx";
 
 const genRow = () => ({
   unit: Faker.random.arrayElement([
@@ -80,3 +81,6 @@ export const DASHBOARD_DATA = config["Patient Dashboard - Details"]
   }));
 
 export const CRITERIA = config["Risk Score"];
+
+export const fetchProperty = (label: string) =>
+  idx(DASHBOARD_DATA.find(row => row.label === label), _ => _.value) || "--";

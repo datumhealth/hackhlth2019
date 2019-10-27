@@ -34,7 +34,7 @@
       "label": "Pt. Name",
       "description": "Name of the patient",
       "key": "name",
-      "Sample": "Mark Williams",
+      "Sample": "Patty Smith",
       "Options": "n/a",
       "FHIR": "Encounter.subject / Patient.name.text",
       "Summary?": "TRUE",
@@ -43,12 +43,12 @@
     {
       "label": "Age",
       "description": "age",
-      "Sample": "55"
+      "Sample": "35"
     },
     {
       "label": "Sex",
       "description": "sex of the patient",
-      "Sample": "Male"
+      "Sample": "Female"
     },
     {
       "label": "Pt. Address",
@@ -76,6 +76,9 @@
     {
       "label": "Primary Insurance Coverage address",
       "Sample": "55 Blue Drive, Las Vegas, NV 12345"
+    },
+    {
+      "label": "Prior Auuthorization Number"
     },
     {
       "label": "Secondary Insurance Coverage",
@@ -137,6 +140,16 @@
       "FHIR": "Goal.target.detailQuantity",
       "Summary?": "TRUE",
       "Dashboard?": "TRUE"
+    },
+    {
+      "label": "Diagnosis 1",
+      "description": "Primary Diagnosis",
+      "Sample": "024.4-Gestational diabetes mellitus"
+    },
+    {
+      "label": "Diagnosis 2",
+      "description": "Secondary Diagnosis",
+      "Sample": "Z3A.00-Encounter for supervision of normal first pregnancy, unspecified trimester"
     },
     {
       "label": "IQ Criteria \n Status",
@@ -206,7 +219,7 @@
     {
       "label": "Patient's Preferred Pharmacy",
       "description": "Patient's Preferred Pharmacy",
-      "Sample": "CVS -  Lebanon St., Frisco, TX",
+      "Sample": "CVS -  Lebanon St., Las Vegas, NV",
       "Dashboard?": "TRUE"
     },
     {
