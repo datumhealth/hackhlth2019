@@ -98,7 +98,7 @@ export const DenialRisk = () => (
       <Main>
         <RiskDial />
         <div>
-          <h2>This patient has a 100% risk of denial.</h2>
+          <h2>This patient has a 87% risk of denial.</h2>
           <p>
             InterQual criteria is only partially met. To decrease the likelihood
             of the patient being denied, ensure that the unmet criteria are
