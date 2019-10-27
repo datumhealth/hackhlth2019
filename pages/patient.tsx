@@ -393,6 +393,11 @@ const Page: NextPage<{}> = () => (
             </Collapse>
           </CardInner>
         </TabPaneWhite>
+        <TabPaneWhite tab="Denial Risk" key="6">
+          <CardInner>
+            <DenialRisk />
+          </CardInner>
+        </TabPaneWhite>
         <TabPaneWhite tab="InterQual Criteria" key="2">
           <CardInner>
             <InterQual />
@@ -402,11 +407,6 @@ const Page: NextPage<{}> = () => (
           <CardInnerCenter>
             <CareTeam />
           </CardInnerCenter>
-        </TabPaneWhite>
-        <TabPaneWhite tab="Discharge Plan" key="4">
-          <CardInner>
-            <DischargePlan />
-          </CardInner>
         </TabPaneWhite>
         <TabPaneWhite tab="Insurance Coverage" key="5">
           <CardInner>
@@ -430,9 +430,9 @@ const Page: NextPage<{}> = () => (
             <CommunicationHistory />
           </CardInner>
         </TabPaneWhite>
-        <TabPaneWhite tab="Denial Risk" key="6">
+        <TabPaneWhite tab="Discharge Plan" key="4">
           <CardInner>
-            <DenialRisk />
+            <DischargePlan />
           </CardInner>
         </TabPaneWhite>
       </Tabs>

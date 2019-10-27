@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Icon } from "antd";
+import Link from "next/link";
 
 const Notification = () => (
   <svg
@@ -87,7 +88,8 @@ export const Navbar = () => (
         {
           icon: "usergroup-add",
           label: "Patients",
-          selected: true
+          selected: true,
+          link: "/overview"
         },
         {
           icon: "message",
@@ -97,11 +99,13 @@ export const Navbar = () => (
           icon: "bar-chart",
           label: "Reports"
         }
-      ].map(({ icon, label, selected = false }) => (
-        <NavTab selected={selected}>
-          <Icon type={icon} />
-          <span>{label}</span>
-        </NavTab>
+      ].map(({ link, icon, label, selected = false }) => (
+        <Link href={link || "/"}>
+          <NavTab selected={selected}>
+            <Icon type={icon} />
+            <span>{label}</span>
+          </NavTab>
+        </Link>
       ))}
     </Nav>
     <Profile>
