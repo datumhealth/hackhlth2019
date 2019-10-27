@@ -65,7 +65,7 @@
     {
       "label": "Primary Insurance Coverage",
       "description": "Patient's insurance Coverage",
-      "key": "insurance ",
+      "key": "insurance",
       "Sample": "Anthem BCBS ",
       "Options": "Medicare\nUnited Health Care\nAetna\nCommunity Care Plan (MDCD)",
       "FHIR": "Coverage",
