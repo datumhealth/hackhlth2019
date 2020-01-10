@@ -191,5 +191,6 @@ export const fetchProperty = (label: string) =>
 export const DENIAL_RISK = "87%";
 
 ROWS[0].name = fetchProperty("Pt. Name");
+ROWS[0].insurance = "Anthem BCBS";
 ROWS[0].drg = fetchProperty("Working DRG");
 ROWS[0].iq = fetchProperty("IQ Criteria Status");
